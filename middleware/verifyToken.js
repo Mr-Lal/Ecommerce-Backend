@@ -1,12 +1,11 @@
 import jwt from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {
-  // First check in cookies
+  
   let token = req.cookies?.token;
 
-  // If not in cookies, check Authorization header
   if (!token && req.headers.authorization?.startsWith("Bearer ")) {
-    token = req.headers.authorization.split(" ")[1]; // Extract token from Bearer
+    token = req.headers.authorization.split(" ")[1]; 
   }
 
   if (!token) {
@@ -15,7 +14,7 @@ export const verifyToken = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // attach user data to request
+    req.user = decoded;
     next();
   } catch (error) {
     return res.status(403).json({ msg: "Invalid or expired token" });
