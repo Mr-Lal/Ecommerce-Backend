@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: ["http://localhost:5173","http://localhost:5174"],
+  origin: ["https://roaring-halva-10e37a.netlify.app","http://localhost:5173","http://localhost:5174"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
 };
