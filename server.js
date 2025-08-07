@@ -5,7 +5,7 @@ import { Server } from "socket.io";
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:5174"], // ✅ Match your frontend
+    origin: ["https://ginstore.netlify.app","http://localhost:5173", "http://localhost:5174"], // ✅ Match your frontend
     methods: ["GET", "POST"],
     credentials: true,
   },
